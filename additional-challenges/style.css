@@ -22,47 +22,46 @@ body {
 .banner-header h1 {
 }
 .meal-box {
-    border: solid 5px black; 
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 5px;;
+  border: solid 5px black;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 .meal-headline {
-    font-size: large;
-    text-align: center;
+  font-size: large;
+  text-align: center;
 }
 
 .meal-pic {
   border: 1px solid #ddd;
-  border-radius: 4px;
-  width: 250px;
-  height: 250px;
   border: black solid 2px;
   border-radius: 20px;
   overflow: hidden;
+  width: 80%;
+  height: 50%;
 }
 .meal-pic img {
-    height: 250px;
+  margin: 0 auto; 
 }
 .meal-txt {
-    width: 250px;
-    text-align: justify;
-    padding: 0 5px;
+  width: 80%;
+  text-align: justify;
+  padding: 0 5px;
 }
 
 .meal-box button {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .meal-box button {
 }
 
 .meal-container {
-    display: flex;
-    gap: 10px; 
-    margin-top: 20px; 
-    padding; 5px,
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  margin: 0 auto;
 }
