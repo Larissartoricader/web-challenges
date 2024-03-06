@@ -14,12 +14,12 @@ const myHeader = document.querySelector("h1");
 console.log(myHeader);
 myHeader.textContent = "The Network !";
 const myText = document.querySelector("p");
-myText.textContent =
-  "A new great Social Media. You have:" + myLikes + "likes." + myAuthor;
 console.log(myText);
-
 const myLikes = 1;
 const myAuthor = "Author Name";
+myText.textContent = `A new great Social Media. You have ${myLikes} likes.`;
+console.log(myText);
+
 const isReported = true;
 
 // const newText = document.createElement("p");
