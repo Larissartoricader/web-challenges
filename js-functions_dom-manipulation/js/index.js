@@ -11,28 +11,48 @@ We want to add some functionality to the buttons on this page. When pressing a b
   3: Use the two functions in the event listeners of the buttons to color in the box when the button is clicked.
 */
 
+function removeAllColors() {
+  box.classList.remove("red", "blue", "green", "gray");
+}
+// --> If I had a lot of elements within the Red, Blue, Green and Gray Css-classes, how could I rewrite this function by always "emptying" the Background-Color property within a Variable Css-Class instead of listing all the colours as possible variables? <---
+
+// function removeAllColors() {
+//   box.style.backgroundColor = "";
+// }
+
+function addColor(nameOfColor) {
+  box.classList.add(nameOfColor);
+}
+
 redButton.addEventListener("click", () => {
   // use your functions to
   // - remove all classes
   // - then add the class name: "red"
+  removeAllColors();
+  addColor("red");
 });
 
 blueButton.addEventListener("click", () => {
   // use your functions to
   // - remove all classes
   // - then add the class name: "blue"
+  removeAllColors();
+  addColor("blue");
 });
 
 greenButton.addEventListener("click", () => {
   // use your functions to
   // - remove all classes
   // - then add the class name: "green"
+  removeAllColors();
+  addColor("green");
 });
 
 grayButton.addEventListener("click", () => {
   // use your functions to
   // - remove all classes
   // - then add the class name: "gray"
+  removeAllColors();
+  addColor("gray");
 });
-
-// Write your two functions below:
+// // Write your two functions below:
