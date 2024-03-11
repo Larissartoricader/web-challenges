@@ -12,7 +12,8 @@ We want to add some functionality to the buttons on this page. When pressing a b
 */
 
 function removeAllColors() {
-  box.classList.remove("red", "blue", "green", "gray");
+  // box.classList.remove("red", "blue", "green", "gray");
+  box.classList = "box";
 }
 // --> If I had a lot of elements within the Red, Blue, Green and Gray Css-classes, how could I rewrite this function by always "emptying" the Background-Color property within a Variable Css-Class instead of listing all the colours as possible variables? <---
 
