@@ -78,10 +78,17 @@ console.log(allTitlesInOneString);
  2: `filter` exercises
 */
 
-const recipesThatOnlyTake60minutesOrLess = null;
+const recipesThatOnlyTake60minutesOrLess = recipes.filter((recipe) => {
+  return recipe.duration <= 60;
+});
 
-const allRecipesWithMoreThan2Servings = null;
+console.log(recipesThatOnlyTake60minutesOrLess);
 
+const allRecipesWithMoreThan2Servings = recipes.filter((recipe) => {
+  return recipe.servings > 2;
+});
+
+console.log(allRecipesWithMoreThan2Servings);
 const allRecipesWithTitlesLongerThan12Characters = null;
 
 export {
