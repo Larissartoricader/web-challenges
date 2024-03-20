@@ -79,7 +79,7 @@ console.log("8 " + employeeWithId);
 const ednaInvestment = employees.find(
   (employee) =>
     employee.firstName === "Edna" &&
-    employee.profession === "Inverstment Manager"
+    employee.profession === "Investment Manager"
 );
 
 console.log("9 " + ednaInvestment);
