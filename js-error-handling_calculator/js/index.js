@@ -2,8 +2,7 @@ console.clear();
 
 const form = document.querySelector("form");
 const output = form.querySelector("output");
-const error = document.querySelector("p");
-console.log(error);
+const errorElement = document.querySelector(".error");
 
 const operations = {
   add: (a, b) => a + b,
@@ -33,8 +32,7 @@ form.addEventListener("submit", (event) => {
   try {
     output.innerText = operations[operation](firstNumber, secondNumber);
   } catch (error) {
-    console.log("Please pass a number rather than 0 as divisor, thank you");
-    output.innerText =
-      "STOP! Pick a better number than ZERO to divide, Dumbass";
+    errorElement.innerText = error;
+    // ("STOP! Pick a better number than ZERO to divide, Dumbass");
   }
 });
