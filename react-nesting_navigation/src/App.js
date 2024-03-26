@@ -2,7 +2,6 @@ import "./styles.css";
 import { Header } from "./components/Header.js";
 import avatar from "./img/avatar.jpg";
 import logo from "./img/logo.jpg";
-import "./styles.css";
 
 export default function App() {
   return (
