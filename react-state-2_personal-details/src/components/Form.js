@@ -1,11 +1,12 @@
-import { useState } from "react";
-
-export default function Form() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-
+export default function Form({ name, setName, email, setEmail }) {
   function handleSubmit(event) {
     event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    setName(name);
+    setEmail(email);
+    form.reset();
   }
 
   return (
@@ -15,9 +16,9 @@ export default function Form() {
       onSubmit={handleSubmit}
     >
       <h2 id="user-details">Please enter your details here!</h2>
-      <label htmlFor="name">Name: </label>
+      <label htmlFor="name">Name:</label>
       <input id="name" name="name" type="text" placeholder="John Doe" />
-      <label htmlFor="email">Email: </label>
+      <label htmlFor="email">E-mail:</label>
       <input id="email" name="email" type="email" placeholder="john@doe.com" />
       <button className="form__submit-button" type="submit">
         Submit
