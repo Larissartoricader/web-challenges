@@ -9,6 +9,7 @@ export default function App() {
 
   function handleOnAddTag(tag) {
     setTags([...tags, { ...tag, id: uid() }]);
+    // setTags([...tags, tag]);
   }
 
   // function handleOnDelete(tag) {
