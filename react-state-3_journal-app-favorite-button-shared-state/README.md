@@ -8,8 +8,8 @@ In this challenge we want to store the favorite feature in the shared state alon
 
 First we need to make sure all entries in state contain information about the favorite button. Locate the component holding the shared state for all entries. Here it is the `App` component.
 
-- Add the key `isFavorite` with the value `false` to each entry in the `initialEntries` array.
-- Add the key `isFavorite` with the value `false` to a newly created entry in the function `handleAddEntry`.
+- Add the key `isFavorite` with the value `false` to each entry in the `initialEntries` array. DONE!!!!!
+- Add the key `isFavorite` with the value `false` to a newly created entry in the function `handleAddEntry`.DONE!!!!!
 
 This was important to have a consistent shape of all entry objects 🚀
 
@@ -17,13 +17,13 @@ This was important to have a consistent shape of all entry objects 🚀
 
 Now let's wire up this information stored in state with the favorite button.
 
-Locate the component with the favorite button. Here it's called `FavoriteButton`.
+Locate the component with the favorite button. Here it's called `FavoriteButton`.DONE!!!!!
 
-- Accept a new prop in this component called `onToggleFavorite`. This event should be triggered when users press the favorite button.
-- Accept a new prop called `isFavorite`.
-- Accept a new prop called `id`.
-- Remove the local state `isFavorite` from this component.
-- Change the button's `onClick` prop to call `onToggleFavorite` and pass `id` with this call as first argument.
+- Accept a new prop in this component called `onToggleFavorite`. This event should be triggered when users press the favorite button.DONE!!!!!
+- Accept a new prop called `isFavorite`.DONE!!!!!
+- Accept a new prop called `id`.DONE!!!!!
+- Remove the local state `isFavorite` from this component.DONE!!!!!
+- Change the button's `onClick` prop to call `onToggleFavorite` and pass `id` with this call as first argument.DONE!!!!!
 
 Great, the favorite button can now inform via an exposed event, which entry should be marked as favorite (or which favorite to remove) 🚀
 
@@ -33,14 +33,14 @@ Great, the favorite button can now inform via an exposed event, which entry shou
 
 Locate the component that renders a single entry including the favorite button. Here it's `Entry`.
 
-- In this component accept the three props too: `onToggleFavorite`, `isFavorite`, `id`.
-- Pass all three props to the `FavoriteButton` component.
+- In this component accept the three props too: `onToggleFavorite`, `isFavorite`, `id`. DONE!!!!!
+- Pass all three props to the `FavoriteButton` component.DONE!!!!!
 
 Locate the component that renders the list of all entries. Here it's `EntrySection`.
 
-- Accept the prop `onToggleFavorite`.
-- Adjust the integration of the `Entry` component to pass the `onToggleFavorite` prop.
-- In addition pass each entry's `id` and `isFavorite` information to the `Entry` component as prop.
+- Accept the prop `onToggleFavorite`. DONE!!!!!
+- Adjust the integration of the `Entry` component to pass the `onToggleFavorite` prop. DONE!!!!!
+- In addition pass each entry's `id` and `isFavorite` information to the `Entry` component as prop. DONE!!!!!
 
 Everything is wired up! 🚀
 
