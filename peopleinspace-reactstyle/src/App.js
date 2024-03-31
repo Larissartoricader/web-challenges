@@ -1,47 +1,68 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
+import Counter from "./components/Counter";
+import FindingName from "./components/FindingName";
+import IssNames from "./components/IssNames";
+import AllNames from "./components/AllNames";
+import TiangongNames from "./components/TiangongNames";
 
 function App() {
-  const [peopleNumber, SetPeopleNumber] = useState(0);
-  const [names, setNames] = useState();
-  const [craftISS, setCraftISS] = useState();
+  const [data, setData] = useState(null);
+  const [showIssList, setShowIssList] = useState(false);
+  const [showTiangongList, setShowTiangongList] = useState(false);
+  const [showAllList, setShowAllList] = useState(false);
 
-  async function fetchData() {
-    const response = await fetch("http://api.open-notify.org/astros.json");
-    const data = await response.json();
-    SetPeopleNumber(data.people.length);
-    setNames(
-      data.people.map((person) => {
-        return <li>{person.name}</li>;
-      })
-    );
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("http://api.open-notify.org/astros.json");
+      const jsonData = await response.json();
+      setData(jsonData);
+      console.log(jsonData);
+    };
+    fetchData();
+  }, []);
 
-    setCraftISS(
-      data.people.map((person) => {
-        return person.craft === "ISS" ? <li>{person.name}</li> : null;
-      })
-    );
-    // console.log(data);
-    // console.log(data.people[3].name);
-    return data;
+  function handleIssButton() {
+    setShowIssList(!showIssList);
   }
 
-  fetchData();
+  function handleTiangongButton() {
+    setShowTiangongList(!showTiangongList);
+  }
+  function handleAllButton() {
+    setShowAllList(!showAllList);
+  }
+
   return (
     <div>
-      <h1>📡 People in Space - React Style 🚀</h1>
-      <h2>Current {peopleNumber} people are in space</h2>
-      <h2>Names</h2>
-      <ol setNames={setNames}>{names}</ol>
-      <div className="button-box">
-        <button>All</button>
-        <button onClick={setCraftISS}>ISS</button>
-        <button>Tiangong</button>
-      </div>
-      <h2>Craft Names</h2>
-      <ol>{craftISS}</ol>
+      <h1>People in Space</h1>
+      <Counter data={data} />
+      <h2>WHO is in Space?</h2>
+      <ol>
+        <FindingName data={data} />
+      </ol>
+      <h2>In which Craft are the people?</h2>
+      <button onClick={handleIssButton}>
+        {showIssList
+          ? "Hide People Inside the Craft ISS"
+          : "Show People Inside the Craft ISS"}
+      </button>
+      {showIssList && <IssNames data={data} />}
+      <br />
+      <button onClick={handleTiangongButton}>
+        {showTiangongList
+          ? "Hide People Inside the Craft Tiangong"
+          : "Show People Inside the Craft Tiangong"}
+      </button>
+      {showTiangongList && <TiangongNames data={data} />}
+      <br />
+      <button onClick={handleAllButton}>
+        {showAllList
+          ? "Hide People Inside the all Crafts"
+          : "Show People Inside the all Crafts"}
+      </button>
+      {showAllList && <AllNames data={data} />}
     </div>
   );
 }
-
 export default App;
