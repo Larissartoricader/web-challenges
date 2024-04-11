@@ -2,6 +2,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { volumes } from "../../lib/data";
+import styled from "styled-components";
+
+const nextConfig = {
+  // {...}
+  images: {
+    domains: ["upload.wikimedia.org"],
+  },
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ["@svgr/webpack"],
+    });
+    return config;
+  },
+};
 
 export default function VolumeDetail() {
   const router = useRouter();
@@ -17,10 +33,15 @@ export default function VolumeDetail() {
     return null;
   }
 
-  const { title, description, cover, books } = volume;
+  const { title, description, cover, books, color } = volume;
+
+  const StyledDiv = styled.div`
+    background-color: ${color};
+    color: white;
+  `;
 
   return (
-    <>
+    <StyledDiv>
       <Link href="/volumes">← All Volumes</Link>
       <h1>{title}</h1>
       <p>{description}</p>
@@ -51,6 +72,6 @@ export default function VolumeDetail() {
           </Link>
         </div>
       ) : null}
-    </>
+    </StyledDiv>
   );
 }
